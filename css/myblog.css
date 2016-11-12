@@ -1,0 +1,193 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+html{
+	height: 100%;
+	width: 100%;
+}
+body{
+	height: 100%;
+	width: 100%;
+	background: url(../images/background01.jpg) repeat-x;
+	background-size: 140% 100%; 
+	perspective-origin: 50%;
+}
+#cover{
+/*	background: black;*/
+	width: 100%;
+	height: 100%;
+	animation:moveRect1 5s infinite alternate-reverse both;
+	position: absolute;
+	z-index: 99;
+}
+#box,#box2{
+	width: 100%;
+	height: 100%;
+	position: relative;
+/*	overflow: hidden;*/
+	position: relative;
+	z-index: 99;
+}
+.ball{
+	border-radius: 50%;
+	position: absolute;
+	animation:moveRect5 10s infinite linear;
+}
+@keyframes moveRect1{
+	0%{
+		opacity: 1;
+	}
+	50%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes moveRect5{
+	0%{
+		opacity: 0;
+	}
+	25%{
+		opacity: .1;
+	}
+	50%{
+		opacity: 1;
+	}
+	75%{
+		opacity: .1;
+	}
+	100%{
+		opacity: 0;
+	}
+}
+.content{
+	width: 35.55%;
+	height: auto;
+	max-width: 480px;
+    padding: 0 20px;
+    margin: 8% auto 0;
+    text-align: center;
+    position: relative;
+    z-index: 9999;
+    opacity: 0.9;
+}
+.logo{
+	width: 100%;
+	height: 80px;
+	max-width: 480px;
+}
+.logo a{
+	display: block;
+	margin: 0 auto;
+	width: 80px;
+	height: 80px;
+	background: url("../images/logo2.png") center center;
+	background-size: 100% 100%;
+	border-radius:50%; 
+}
+.logo a:hover{
+	animation: turn 1s 1 linear;
+}
+@keyframes turn{
+				from{
+					transform:rotate(0deg);
+				}
+				
+				to{
+					transform:rotate(360deg);
+				}
+			}
+#box p{
+	font-size: 1.2em;
+    line-height: 1.35em;
+    color: #fff;
+    padding: 0;
+    margin: 60px 0 20%;
+    font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    font-weight: 200;
+}
+#box ul{
+	width: 60%;
+	margin: 0 auto;
+	list-style: none;
+	height: 40px;
+	display: flex;
+}
+#box ul li{
+	height: 40px;
+	flex: 1;
+}
+#box ul a{
+	width: 100%;
+    height: 40px;
+    display: block;
+}
+.emaila{
+	background: transparent url('../images/email.png') top center no-repeat;
+}
+.githuba{
+	background: transparent url('../images/github.png') top center no-repeat;
+}
+.qqa{
+	background: transparent url('../images/qq.png') top center no-repeat;
+}
+#box ul a:hover{
+	animation:turn 2s linear;
+}
+
+
+/*尾部旋转立方体*/
+#logo{
+	width:50px;
+	height: 50px;
+	position: relative;
+	margin: 0 auto;
+	transform-style: preserve-3d;
+	/*animation: revolve 10s infinite;*/
+}
+#logo:hover{
+	animation: revolve 4s infinite;
+}
+#logo div{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	text-align: center;
+	line-height: 100px;
+
+/*	opacity: 0.6;*/
+}
+#logo div img{
+	width: 100%;
+	height: 100%;
+	vertical-align: top;
+}
+.face{
+	transform: translateZ(25px);
+}
+.back{
+	transform: translateZ(-25px);
+}
+.left{
+	transform:  rotateY(-90deg) translateZ(25px);
+}
+.right{
+	transform:  rotateY(90deg) translateZ(25px);
+}
+.top{
+	transform: rotateX(90deg) translateZ(25px);
+}
+.bottom{
+	transform:rotateX(-90deg) translateZ(25px);
+}
+@keyframes revolve {
+from {
+ transform: rotateX(0) rotateY(0);
+	}
+to {
+ transform: rotateX(360deg) rotateY(360deg);
+}
+
+

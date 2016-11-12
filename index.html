@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta charset="UTF-8">
+	<title>myblog</title>
+	<style type="text/css">
+		@import url("css/myblog.css");
+		.p2content{
+			width: 70%;
+			height: auto;
+			margin: 8% auto;
+		}
+		.p2cnt{
+			width: 115%;
+			height: 50px;
+			line-height: 50px;
+			text-align: left;
+			font-size:18px;
+			color:white;	
+			text-indent: 5%;
+		}
+		.clearbar{
+			clear: both;
+		}
+		
+		.p3cnt{
+			display: block;
+			height: 20px;
+			margin-bottom: 20px;
+			color: darkgreen;
+			font-size: 16px;
+			line-height: 20px;
+			padding-left: 10%;
+		}
+		.proleft{
+			width: 30%;
+			float: left;
+		}
+		.proright{
+			width: 70%;
+			float: left;
+		}
+		
+		@media only screen and (min-width: 780px) and (max-width: 1920px) {
+			.p4cnt{
+				width: 100%;
+				height: 100%;
+			}
+			.p4cntitem{
+				width: 100%;
+				height: 80%;
+				padding: 8%;
+				margin-left: 10%;
+			}
+			.p4cntitem img{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-container{
+				float: left;
+				width: 30%;
+				height: 480px;
+			}
+			.itemcnt{
+				width: 40%;
+				float: left;
+				color: white;
+				margin-left: 10%;
+			}
+			#box7 .swiper-container{
+				float: left;
+				width: 50%;
+				height: 480px;
+			}
+			#box7 .itemcnt{
+				width: 30%;
+				float: left;
+				color: white;
+				margin-left: 10%;
+			}
+		}
+		@media only screen and (min-width: 300px) and (max-width: 780px) {
+			#box .content{
+				width: 70%;
+			}
+			#box .content p{
+				margin-bottom: 150px;
+			}
+			.p2content{
+				width: 90%;
+				height: auto;
+				margin: 8% auto;
+			}
+			.p2cnt1{
+				width: 110%;
+				height: auto;
+				text-align: left;
+				font-size:18px;
+				color:darkgreen;	
+			}
+			.p4cnt{
+				width: 100%;
+				height: 100%;
+			}
+			.hover{
+				width: 50px;
+				height: 100px;
+				float: left;
+			}
+			.p4cntitem{
+				width: 100%;
+				height: 100%;
+				padding: 8% 1%;
+				margin-left: 5%;
+			}
+			.p4cntitem img{
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			.swiper-container{
+				float: left;
+				width: 65%;
+				height: 40%;
+			}
+			.itemcnt{
+				width: 100%;
+				float: left;
+				color: darkgreen;
+			}
+			#box7 .swiper-container{
+				float: left;
+				width: 90%;
+				height: 40%;
+			}
+		}
+		#ss_menu {
+		  bottom: 30px;
+		  width: 60px;
+		  height: 60px;
+		  color: darkgreen;
+		  position: fixed;
+		  -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  transition: all 1s ease;
+		  z-index: 9999;
+		  right: 10px;
+		  -webkit-transform: rotate(180deg);
+		  -moz-transform: rotate(180deg);
+		  -ms-transform: rotate(180deg);
+		  -o-transform: rotate(180deg);
+		  transform: rotate(180deg);
+		}
+		#ss_menu > .menu {
+		  display: block;
+		  position: absolute;
+		  border-radius: 50%;
+		  width: 60px;
+		  height: 60px;
+		  text-align: center;
+		  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23), 0 3px 10px rgba(0, 0, 0, 0.16);
+		  -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  transition: all 1s ease;
+		}
+		#ss_menu > .menu .share {
+		  width: 100%;
+		  height: 100%;
+		  position: absolute;
+		  left: 0px;
+		  top: 0px;
+		  -webkit-transform: rotate(180deg);
+		  -moz-transform: rotate(180deg);
+		  -ms-transform: rotate(180deg);
+		  -o-transform: rotate(180deg);
+		  transform: rotate(180deg);
+		  -webkit-transition: all 1s ease;
+		  -moz-transition: all 1s ease;
+		  transition: all 1s ease;
+		}         
+		/*进度条*/
+		/*.demo{
+			padding: 2em 0;
+			background: linear-gradient(to right, #2c3b4e, #4a688a, #2c3b4e);
+              }
+              .progress{
+                  height: 25px;
+                  background: #262626;
+                  padding: 5px;
+                  overflow: visible;
+                  border-radius: 20px;
+                  border-top: 1px solid #000;
+                  border-bottom: 1px solid #7992a8;
+                  margin-top: 50px;
+              }
+              .progress .progress-bar{
+                  border-radius: 20px;
+                  position: relative;
+                  animation: animate-positive 2s;
+              }
+              .progress .progress-value{
+                  display: block;
+                  padding: 3px 7px;
+                  font-size: 13px;
+                  color: #fff;
+                  border-radius: 4px;
+                  background: #191919;
+                  border: 1px solid #000;
+                  position: absolute;
+                  top: -40px;
+                  right: -10px;
+              }
+              .progress .progress-value:after{
+                  content: "";
+                  border-top: 10px solid #191919;
+                  border-left: 10px solid transparent;
+                  border-right: 10px solid transparent;
+                  position: absolute;
+                  bottom: -6px;
+                  left: 26%;
+              }
+              .progress-bar.active{
+                  animation: reverse progress-bar-stripes 0.40s linear infinite, animate-positive 2s;
+              }
+              @-webkit-keyframes animate-positive{
+                  0% { width: 0; }
+              }
+              @keyframes animate-positive{
+                  0% { width: 0; }
+              }*/
+	</style>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/animate.min.css">
+	<link rel="stylesheet" href="css/jquery.fullPage.css"/>	
+	<link rel="stylesheet" href="css/jquery-ui.min.css">
+	<link rel="stylesheet" href="css/typeit.min.css">
+	<link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css">
+	<link rel="stylesheet" type="text/css" href="css/swiper-3.3.1.min.css"/>
+	<link rel="stylesheet" type="text/css" href="css/normalize.css" />
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	
+	
+</head>
+<body>
+	<div id="fullpage">
+		<div id="box" class="section">
+			<div class="content">
+				<div id="logo">
+					<div class="face"><img src="./images/footer01.png" alt="" /></div>
+					<div class="back"><img src="./images/footer02.png" alt="" /></div>
+					<div class="left"><img src="./images/footer03.png" alt="" /></div>
+					<div class="right"><img src="./images/footer04.png" alt="" /></div>
+					<div class="top"><img src="./images/footer05.png" alt="" /></div>
+					<div class="bottom"><img src="./images/footer06.png" alt="" /></div>
+				</div>
+					<p class="col-sm-12 col-xl-12">
+						<strong>Hi, I'm DaiJunLiang</strong>. Web Developer &amp; maker of fine things that live on the internets.
+					</p>
+				
+			</div>
+			
+			<ul>
+				<li class="email">
+					<a class="emaila" href="mail:dearjunliang@gmail.com" title="Email"></a>
+				</li>
+				<li class="github">
+					<a class="githuba" href="https://github.com/JLDai" title="Github"></a>
+				</li>
+				<li class="qq">
+					<a class="qqa" href="244709369" title="qq"></a>
+				</li>
+			</ul>
+		</div>
+		<div id="box2" class="section">
+			<div class="p2content">
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>民族：</b>&nbsp;汉族</div>
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>年龄：</b>&nbsp;23</div>
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>籍贯：</b>&nbsp;湖南衡阳</div>
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>现居：</b>&nbsp;深圳市宝安区</div>
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>电话：</b>&nbsp;17607618761</div>
+			<div class="p2cnt col-sm-6 col-xl-12 " ><b>邮箱：</b>&nbsp;dearjunliang@gmail.com</div>
+			<div class="p2cnt1 col-sm-12 col-xl-12 type-it" data-typeit-whattotype="  我叫戴俊亮，是一个有着两年半工作经验的前端工程师，热爱软件事业，工作认真负责，能吃苦耐劳；从上海到深圳，为了追求自己的梦想！">
+				
+			</div>
+			<div class="clearbar"></div>
+			</div>
+		</div>
+		<div id="box3" class="section">
+			<div class="p3content">
+				<div class="htmleaf-container"  style="padding-top: 8%;">
+					<div id='tag-cloud' class="col-sm-6 col-xl-6" style="margin-top: -5%;"></div>
+					<div class="col-sm-6 col-xl-6">
+					<div class="demo">
+				        <div class="container">
+				            <div class="row p3prg col-sm-6 col-xl-12">
+				            	<div class="proleft">
+				            		<b class="p3cnt">html/css</b>
+				            		<b class="p3cnt">Javascript</b>
+				            		<b class="p3cnt">jQuery</b>
+				            		<b class="p3cnt">AngularJS</b>
+				            		<b class="p3cnt">RequireJS</b>
+				            	</div>
+				                <div class="proright">
+				                    <div class="progress">
+				                    	<!--<div>html/css</div>-->
+				                        <div class="progress-bar progress-bar-info progress-bar-striped active" style="width: 85%;">
+				                            <div class="progress-value">85%</div>
+				                        </div>
+				                    </div>
+			
+				                    <div class="progress">
+				                    	<!--<div>javascript</div>-->
+				                        <div class="progress-bar progress-bar-success progress-bar-striped active" style="width: 75%;">
+				                            <div class="progress-value">75%</div>
+				                        </div>
+				                    </div>
+			
+				                    <div class="progress">
+				                    	<!--<div>jQuery</div>-->
+				                        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 77%;">
+				                            <div class="progress-value">77%</div>
+				                        </div>
+				                    </div>
+			
+				                    <div class="progress">
+				                    	<!--<div>angularJS</div>-->
+				                        <div class="progress-bar progress-bar-warning progress-bar-striped active" style="width: 72%;">
+				                            <div class="progress-value">75%</div>
+				                        </div>
+				                    </div>
+				                    <div class="progress">
+				                    	<!--<div>angularJS</div>-->
+				                        <div class="progress-bar progress-bar-danger progress-bar-striped active" style="width: 70%;">
+				                            <div class="progress-value">70%</div>
+				                        </div>
+				                    </div>
+				                    <div class="clearbar"></div>
+				                </div>
+				            </div>
+				        </div>
+				    </div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<!--工作经历-->
+		<!--小鹿美美移动端-->
+		<div id="box4" class="section">
+			<div class="cover"></div>
+			<div class="p4cnt">
+				<div class="p4cntitem">
+					<div class="hover"></div>
+					<div class="swiper-container">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide"><img src="images/IMG_0974.PNG"/></div>
+					    <div class="swiper-slide"><img src="images/IMG_0975.PNG"/></div>
+					    <div class="swiper-slide"><img src="images/IMG_0976.PNG"/></div>
+					  </div>
+					</div>
+					<div class="itemcnt">
+						<h4><b>小鹿美美（移动端）</b></h4>
+						<h5><b>项目描述</b></h5>
+						<p>本网站是一家主打母婴服装产品的特卖平台,通过特卖的方式打造销售童装、女装的移动电商平台的移动端web。</p>
+						<h5><b>项目周期</b></h5>
+						<p>3个月</p>
+						<h5><b>工作内容</b></h5>
+						<p>
+							1.根据UI设计负责页面布局搭建；<br>2.编写高维护性的javascript代码，实现逻辑控制和效果以及后台数据的交互；<br>3.实现用户的登录注册、搜索的功能；<br>4.对页面进行优化等工作。<br>
+							5.使用技术：<br>
+							<code>angular</code>+<code>jQuery</code>+<code>iscroll</code>+<code>swiper</code>
+						</p>										
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--诺心微信公众号-->
+		<div id="box5" class="section">
+			<div class="cover"></div>
+			<div class="p4cnt">
+				<div class="p4cntitem">
+					<div class="hover"></div>
+					<div class="swiper-container">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide"><img src="images/IMG_0981.PNG"/></div>
+					    <div class="swiper-slide"><img src="images/IMG_0982.PNG"/></div>
+					  </div>
+					</div>
+					<div class="itemcnt">
+						<h4><b>小鹿美美（微信公众号）</b></h4>
+						<h5><b>项目描述</b></h5>
+						<p>本网站是一家主打母婴服装产品的特卖平台,通过特卖的方式打造销售童装、女装的移动电商平台的移动端web。</p>
+						<h5><b>项目周期</b></h5>
+						<p>两周</p>
+						<h5><b>工作内容</b></h5>
+						<p>
+							1.使用微信公众号开发者平台创建企业公众号；<br>2.根据需求，编辑微信公众号菜单，以及接口；<br>3.更新推送内容以及菜单接口内容；<br>
+							4.使用技术：<br>
+							<b>微信公众号开发者平台API</b>
+						</p>										
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box6" class="section">
+			<div class="cover"></div>
+			<div class="p4cnt">
+				<div class="p4cntitem">
+					<div class="hover"></div>
+					<div class="swiper-container">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide"><img src="images/IMG_0977.PNG"/></div>
+					    <div class="swiper-slide"><img src="images/IMG_0978.PNG"/></div>
+					    <div class="swiper-slide"><img src="images/IMG_0979.PNG"/></div>
+					  </div>
+					</div>
+					<div class="itemcnt">
+						<h4><b>诺心蛋糕（移动端）</b></h4>
+						<h5><b>项目描述</b></h5>
+						<p>这是一个致力提供高品质及美味的蛋糕食品，精品线上蛋糕品牌的移动端蛋糕定制的移动端web。</p>
+						<h5><b>项目周期</b></h5>
+						<p>3个半月</p>
+						<h5><b>工作内容</b></h5>
+						<p>
+							1.根据UI设计师给出设计图编写完整页面；<br>2.实现不同移动设备下自适应效果；<br>3.负责项目后期的维护工作，代码的优化，提升页面的加载速度。。<br>
+							4.使用技术：<br>
+							<code>require</code>+<code>backbone</code>+<code>jQuery</code>+<code>Zepto</code>+<code>swiper</code>
+						</p>										
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="box7" class="section">
+			<div class="cover"></div>
+			<div class="p4cnt">
+				<div class="p4cntitem">
+					<div class="swiper-container">
+					  <div class="swiper-wrapper">
+					    <div class="swiper-slide"><img src="images/pc01.png"/></div>
+					    <div class="swiper-slide"><img src="images/pc02.png"/></div>
+					    <div class="swiper-slide"><img src="images/pc03.png"/></div>
+					  </div>
+					</div>
+					<div class="itemcnt">
+						<h4><b>诺心蛋糕（PC端）</b></h4>
+						<h5><b>项目描述</b></h5>
+						<p>本网站是一款致力提供高品质及美味的蛋糕食品，高质及安心的精品线上蛋糕品牌的PC端蛋糕定制的网站，网站简约美观。</p>
+						<h5><b>项目周期</b></h5>
+						<p>4个月</p>
+						<h5><b>工作内容</b></h5>
+						<p>
+							1.团队项目，根据UI设计负责页面布局搭建；<br>2.编写高维护性的javascript代码，实现逻辑控制和效果以及后台数据的交互；<br>3.项目后期的维护工作，代码的优化，提升页面的加载速度。<br>
+							4.使用技术：<br>
+							<code>div+css</code>+<code>jQuery</code>+<code>ajax</code>+<code>swiper</code>
+						</p>										
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id='ss_menu'>
+		  <div>
+		    <i class="fa fa-qq"><a href="#page4">项目</a></i>
+		  </div>
+		  <div>
+		    <i class="fa fa-weibo"><a href="#page3">技能</a></i>
+		  </div>
+		  <div>
+		    <i class="fa fa-weixin"><a href="#page2">信息</a></i>
+		  </div>
+		  <div>
+		    <i class="fa fa-renren"><a href="#page1">主页</a></i>
+		  </div>
+		  <div>
+		    <i class="fa fa-renren"><a id="shift" href="####">关灯</a></i>
+		  </div>
+		  <div class='menu'>
+		    <div class='share' id='ss_toggle' data-rot='180'>
+		    </div>
+		  </div>
+		</div>      
+	</div>
+	<script type="text/javascript" src="./js/jquery.js"></script>		
+	<script type="text/javascript" src='./js/jquery-ui.min.js'></script>	
+	<script type="text/javascript" src="./js/jquery.easing.min.js"></script>
+	<script type="text/javascript" src="./js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="./js/bootstrap.min.js"></script>
+	<script src="js/wow.min.js"></script>
+	<script src="js/jquery.svg3dtagcloud.min.js"></script>
+	<script src="js/typeit.min.js"></script>
+	<script src="js/swiper-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//换肤
+		var flag = false;
+		function dynamicLoading(path){
+				if(!path || path.length === 0){
+			  		throw new Error('argument "path" is required !');
+		 		}
+				var head = document.getElementsByTagName('head')[0];
+				   var link = document.createElement('link');
+				   link.href = path;
+				   link.rel = 'stylesheet';
+				   link.type = 'text/css';
+				   head.appendChild(link);
+				}
+				
+		var shift = document.querySelector("#shift");
+		
+		function removejscssfile(filename, filetype){
+			var targetelement=(filetype=="js")? "script" : (filetype=="css")? "link" : "none"
+			var targetattr=(filetype=="js")? "src" : (filetype=="css")? "href" : "none"
+			var allsuspects=document.getElementsByTagName(targetelement)
+			for (var i=allsuspects.length; i>=0; i--){
+			if (allsuspects[i] && allsuspects[i].getAttribute(targetattr)!=null && allsuspects[i].getAttribute(targetattr).indexOf(filename)!=-1)
+			   allsuspects[i].parentNode.removeChild(allsuspects[i])
+			}
+		}
+		shift.onclick = function(e){
+			e.preventDefault();
+			if(flag){
+				document.body.style.background = "url(./images/background01.jpg) repeat-x";
+				document.body.style.backgroundSize = "140% 100%"; 
+				this.innerHTML = "关灯";
+				flag = !flag;
+			}else{
+				document.body.style.background = "#212121";
+				flag = !flag;
+				this.innerHTML = "开灯";
+			}
+		}
+		//菜单导航栏
+		$(document).ready(function (ev) {
+		    var toggle = $('#ss_toggle');
+		    var menu = $('#ss_menu');
+		    var rot;
+		    $('#ss_toggle').on('click', function (ev) {
+		        rot = parseInt($(this).data('rot')) - 180;
+		        menu.css('transform', 'rotate(' + rot + 'deg)');
+		        menu.css('webkitTransform', 'rotate(' + rot + 'deg)');
+		        if (rot / 180 % 2 == 0) {
+		            toggle.parent().addClass('ss_active');
+		            toggle.addClass('close');
+		        } else {
+		            toggle.parent().removeClass('ss_active');
+		            toggle.removeClass('close');
+		        }
+		        $(this).data('rot', rot);
+		    });
+		    menu.on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+		        if (rot / 180 % 2 == 0) {
+		            $('#ss_menu div i').addClass('ss_animate');
+		        } else {
+		            $('#ss_menu div i').removeClass('ss_animate');
+		        }
+		    });
+		});
+		
+		//打字机
+		$('.type-it').typeIt({
+		  whatToType:'Enter your string here!',
+		  typeSpeed: 300,
+		  lifeLike: false,
+		  showCursor: true
+		});  
+	</script>
+	<script type="text/javascript">
+		if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+				new WOW().init();
+			};
+		
+		$(function(){					
+   			 $('#fullpage').fullpage({
+   			 	sectionSelector: 'section',
+   			 	scrollBar:true,
+   			 	navigation:true,
+                'verticalCentered': false,
+                'anchors': ['page1', 'page2', 'page3', 'page4', 'page5', 'page6', 'page7'],
+                'navigation': true,                //是否显示导航栏
+                'navigationPosition': 'left',  //导航栏的位置
+                afterSlideLeave: function( anchorLink, index, slideAnchor, slideIndex){
+			        var loadedSlide = $(this);
+			 		console.log(anchorLink);
+			        //first slide of the second section
+			        if(anchorLink == 'page2' && slideIndex == 1){
+			            alert("First slide loaded");
+			        }
+			    },
+			    afterLoad: function(anchorLink, index){
+			        var leavingSection = $(this);
+			        //after leaving section 2
+			      	new WOW().init();
+			   	}
+          	});	
+		});
+	</script>
+
+	
+	
+	
+	<script type="text/javascript">
+			var count = 0;			
+			var bodybg = document.getElementsByTagName("body")[0];
+			var timer2,timer3;
+			
+			function timeFnReduce(){
+				timer2 = setInterval(function(){
+					count -= 1;
+					bodybg.style.backgroundPositionX = count + "px";
+					if(count <= -100){
+						timeFnAdd();
+						clearInterval(timer2);
+					}
+				},100)
+			}
+			function timeFnAdd(){
+				timer3 = setInterval(function(){
+					count += 1;
+					bodybg.style.backgroundPositionX = count + "px";
+					if(count > 0){
+						timeFnReduce();
+						clearInterval(timer3);
+					}
+				},100)
+			}
+			window.onload = function(){
+				timeFnReduce();
+			}
+		</script>
+		
+		<script>
+    	$( document ).ready( function() {
+            var entries = [ 
+                { label: 'Back to top'},
+                { label: 'Bootstrap', url:'http://getbootstrap.com/'},
+                { label: 'HTML/CSS', url: '#'},
+                { label: 'HTML5/CSS3'},
+                { label: 'jQuery', url: 'https://jquery.com/'},
+                { label: 'Javascript', url: '#'},
+                { label: 'nodeJS', url: 'https://nodejs.org/en/'},
+                { label: 'swiper', url: 'http://www.swiper.com.cn/', target: '_top' },
+                { label: 'BackboneJS', url: 'http://backbonejs.org/'},
+                { label: 'undescore', url: 'http://underscorejs.org/'},
+                { label: 'Zepto', url: 'http://zeptojs.com/'},
+                { label: 'baiduTemplate', url: '#'},
+                { label: 'Wechat public', url: '#'},
+                { label: 'requireJS', url: 'http://requirejs.org/', target: '_top' },
+                { label: 'angularJS', url: 'https://docs.angularjs.org/', target: '_top' },
+                { label: 'Can I Use', url: 'http://caniuse.com/', target: '_top' },
+                { label: 'URL shortener', url: 'https://goo.gl/', target: '_top' },
+                { label: 'ES6', url: 'http://es6.ruanyifeng.com/', target: '_top' },
+                { label: 'Ajax', url: '#', target: '_top' },
+                { label: 'Fis3', url: 'http://fis.baidu.com/fis3/docs/beginning/intro.html'},
+                { label: 'Gulp', url: 'http://www.gulpjs.com.cn/', target: '_top' },
+                { label: 'Browsersync'},
+                { label: 'GitHub', url: 'https://github.com/', target: '_top' },              
+            ];
+
+            var settings = {
+
+                entries: entries,
+                width: 480,
+                height: 320,
+                radius: '60%',
+                radiusMin: 75,
+                bgDraw: false,
+                bgColor: '#494A5F',
+                opacityOver: 1.00,
+                opacityOut: 0.05,
+                opacitySpeed: 6,
+                fov: 800,
+                speed: 0.5,
+                fontFamily: 'Oswald, Arial, sans-serif',
+                fontSize: '15',
+                fontColor: '#fff',
+                fontWeight: 'normal',//bold
+                fontStyle: 'normal',//italic 
+                fontStretch: 'normal',//wider, narrower, ultra-condensed, extra-condensed, condensed, semi-condensed, semi-expanded, expanded, extra-expanded, ultra-expanded
+                fontToUpperCase: true
+
+            };
+
+            $( '#tag-cloud' ).svg3DTagCloud( settings );
+
+		} );
+        
+    </script>
+    <script> 
+		var mySwiper = new Swiper('.swiper-container', {
+			autoplay: 5000,//可选选项，自动滑动
+		})
+		</script>
+</body>
+</html>
