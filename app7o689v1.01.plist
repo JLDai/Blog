@@ -11,7 +11,7 @@
 					<key>kind</key>
 					<string>software-package</string>
 					<key>url</key>
-					<string>http://122.10.93.67/apps/o689/app7o689v1.01.ipa</string>
+					<string>https://s3-ap-southeast-1.amazonaws.com/test.p/app7o689a259.ipa</string>
 				</dict>
 			</array>
 			<key>metadata</key>
